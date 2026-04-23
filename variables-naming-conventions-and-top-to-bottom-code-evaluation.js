@@ -24,9 +24,28 @@ Things to reflect on:
   
 */
 
-let a = "Alice";
-let b = 5;
-let c = 20;
-let d = a + " bought " + b + " items for $" + c + ".";
+let customerName = "Alice";
+let storeName = "Kroger";
 
-console.log(d);
+let numberOfItemsPurchased = 5;
+let priceBeforeTax = 20;
+let priceEachItem = priceBeforeTax / numberOfItemsPurchased;
+
+const taxRate = .0422;
+let taxPercent = (taxRate * 100) + "%"; 
+let taxes = priceBeforeTax * taxRate;
+let totalPrice = priceBeforeTax + taxes;
+
+
+priceEachItem = "$" + priceEachItem.toFixed(2);
+priceBeforeTax = "$" + priceBeforeTax.toFixed(2); 
+totalPrice = "$" + totalPrice.toFixed(2); 
+
+
+let sentence1 = customerName + " purchased " + numberOfItemsPurchased + " items at " + storeName + " for " + priceEachItem + " each, totaling " + priceBeforeTax + " before tax.";
+let sentence2 = " At a tax rate of " + taxPercent + ", her final total comes to " + totalPrice + ".";
+
+let customerReceipt = sentence1 + sentence2;
+
+console.log(customerReceipt);
+
